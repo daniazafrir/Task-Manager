@@ -1,0 +1,21 @@
+.tasks-container {
+  // Just to show the rectangle area
+  // If data will overflowed, a scrollbar will apear
+  width: 1380px;
+  height: 695px;
+  border: 1px solid blue;
+  ::ng-deep.mat-card-header-text{
+    margin: 0;
+  }
+  .status-task{
+    display: flex;
+    justify-content: right;
+    width: 250px;
+  }
+  .task-card {
+    max-width: 250px;
+    max-height: 300px;
+  }
+  
+}
+

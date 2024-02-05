@@ -1,0 +1,26 @@
+<div class="tasks-container">
+  <mat-card *ngFor="let task of (tasks$ | async)" class="task-card">
+    <mat-card-header>
+      <mat-card-subtitle class="status-task"><b>Status: </b>
+        <span [ngStyle]="{ 'color': colorsSet[task.status!] }">{{task.status}}</span>  
+         </mat-card-subtitle>      
+      <mat-card-title  [matTooltip]="task.title"
+      >{{task.title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p [matTooltip]="task.description">{{task.description}}</p>
+      <p><b>Created: </b> <span>{{task.creationTime| date:"dd MMM, yyyy"}}</span></p>
+      <p><b>Due Date: </b> <span>{{task.dueDate| date:"dd MMM, yyyy"}}</span></p>
+      <mat-card-subtitle><b>{{task.userName | titlecase}}</b></mat-card-subtitle>
+      <mat-card-subtitle><b>Categories:</b></mat-card-subtitle>
+      <mat-list role="list"  *ngFor="let cat of task.categories">
+        <mat-list-item role="listitem">{{cat.name}}</mat-list-item>
+      </mat-list>
+      <mat-divider></mat-divider>
+    </mat-card-content>
+    
+    <mat-card-footer>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+  </mat-card>
+  </div>
